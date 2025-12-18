@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The $Farmer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+            background-image: url('https://i.imgur.com/rq9iTfN.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .title {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 192px;
+            font-weight: bold;
+            color: white;
+            z-index: 10;
+        }
+
+        .left-image {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: transform 0.2s;
+            max-width: 4200px;
+            height: auto;
+        }
+
+        .left-image:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .right-image {
+            position: absolute;
+            right: 180px;
+            bottom: 80px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            max-width: 450px;
+            height: auto;
+        }
+
+        .right-image:hover {
+            transform: scale(1.05);
+        }
+
+        .twitter-icon {
+            position: absolute;
+            top: 80px;
+            right: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            max-width: 150px;
+            height: auto;
+            z-index: 10;
+        }
+
+        .twitter-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .medium-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: transform 0.2s;
+            max-width: 400px;
+            height: auto;
+            z-index: 10;
+        }
+
+        .medium-icon:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .ca-box {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 3px solid #333;
+            border-radius: 12px;
+            padding: 45px 90px;
+            font-size: 60px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .ca-box:hover {
+            transform: translateX(-50%) scale(1.05);
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .ca-box span {
+            color: #666;
+        }
+
+        @media (max-width: 1600px) {
+            .left-image {
+                max-width: 3500px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .left-image {
+                max-width: 2800px;
+                left: 30px;
+            }
+            
+            .right-image {
+                max-width: 350px;
+                right: 120px;
+            }
+
+            .title {
+                font-size: 120px;
+            }
+
+            .ca-box {
+                font-size: 40px;
+                padding: 30px 60px;
+            }
+
+            .twitter-icon {
+                max-width: 100px;
+            }
+
+            .medium-icon {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-image {
+                max-width: 1800px;
+                left: 20px;
+            }
+            
+            .right-image {
+                max-width: 250px;
+                right: 80px;
+            }
+
+            .title {
+                font-size: 60px;
+                top: 20px;
+            }
+
+            .ca-box {
+                font-size: 24px;
+                padding: 20px 40px;
+                bottom: 20px;
+            }
+
+            .twitter-icon {
+                max-width: 70px;
+                top: 40px;
+                right: 30px;
+            }
+
+            .medium-icon {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">The $Farmer</div>
+
+    <img 
+        id="leftImage" 
+        class="left-image" 
+        src="https://i.imgur.com/3wLv8Ks.png" 
+        alt="Left Character"
+    >
+
+    <img 
+        id="rightImage" 
+        class="right-image" 
+        src="https://i.imgur.com/csUBcft.png" 
+        alt="Right Character"
+    >
+
+    <img 
+        class="twitter-icon" 
+        src="https://i.imgur.com/9fresZ5.png" 
+        alt="Twitter"
+        onclick="window.open('https://x.com/', '_blank')"
+    >
+
+    <img 
+        class="medium-icon" 
+        src="https://i.imgur.com/2xCaFBq.png" 
+        alt="Medium"
+        onclick="window.open('https://medium.com/@TheHumbleFarmer/the-farmer-ceddadbaec05', '_blank')"
+    >
+
+    <div class="ca-box" onclick="window.open('https://pump.fun', '_blank')">
+        <span>ca:</span> 
+    </div>
+
+    <script>
+        const leftImage = document.getElementById('leftImage');
+        const rightImage = document.getElementById('rightImage');
+
+        let leftState = false;
+        let rightState = false;
+
+        leftImage.addEventListener('click', () => {
+            leftState = !leftState;
+            leftImage.src = leftState 
+                ? 'https://i.imgur.com/3kCLPeE.png' 
+                : 'https://i.imgur.com/3wLv8Ks.png';
+        });
+
+        rightImage.addEventListener('click', () => {
+            rightState = !rightState;
+            rightImage.src = rightState 
+                ? 'https://i.imgur.com/F8DXhaG.png' 
+                : 'https://i.imgur.com/csUBcft.png';
+        });
+    </script>
+</body>
+</html>
